@@ -53,7 +53,7 @@ class Lookup extends Command {
               break;
           case "guild":
               if(!search) {
-                  return client.music.sendEmbed(message, "⚠ Donnez-moi l'ID d'un utilisateur Discord !");
+                  return client.music.sendEmbed(message, "⚠ Donnez-moi l'ID d'une guild Discord !");
               }
                 await axios.get(`https://discordapp.com/api/v6/guilds/${search}`, {
                     headers: {
