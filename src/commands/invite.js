@@ -15,8 +15,8 @@ class Invite extends Command {
 
   async run(message, args) {
     let client = this.client;
-    await client.utils.get("music").sendEmbed(message, `Pour m'inviter, [clique-ici](https://discordapp.com/oauth2/authorize?client_id=${client.user.id}&scope=bot&permissions=-1)`);
+    await client.utils.get("music").sendEmbed(message, "Pour m'inviter, [clique-ici](https://discordapp.com/oauth2/authorize?client_id=531502637888045057&scope=bot&permissions=36719872)");
   }
-};
+}
 
 module.exports = Invite;

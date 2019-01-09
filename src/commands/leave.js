@@ -14,16 +14,20 @@ class Leave extends Command {
   }
 
   async run(message, args) {
-    if(!message.member.voiceChannel) return this.client.utils.get("music").sendEmbed(message, "⚠ Vous devez être connecté dans un salon-vocal !");
+    if(!message.member.voiceChannel) {
+      return this.client.utils.get("music").sendEmbed(message, "⚠ Vous devez être connecté dans un salon-vocal !");
+    }
       let queue = this.client.utils.get("music").getQueue(message.guild.id);
 
       await message.member.voiceChannel.leave();
       await this.client.utils.get("music").sendEmbed(message, "Je suis bien sortie du salon-vocal à votre demande ! ✅");
-      if(queue.length == 0) return; 
+      if(queue.length === 0) {
+        return; 
+      }
         for (var i = queue.length - 1; i >= 0; i--) {
           queue.splice(i, 1);
         }
   }
-};
+}
 
 module.exports = Leave;

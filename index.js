@@ -20,12 +20,12 @@ fs.readdir("./src/commands", (err, files) => {
   if(err) throw err;
   if(!files.length) return console.log("[Alerte] Aucune commande trouvée !");
 
-  const commands = files.filter(c => c.split(".").pop() === "js");
+  const commands = files.filter((c) => c.split(".").pop() === "js");
 
   for (let i = 0; i < commands.length; i++) {
     if (!commands.length) return console.log("[Alerte] Aucune commande trouvée !");
-    const file = require(`./src/commands/${commands[i]}`);
-    const command = new file(client);
+    const FILE = require(`./src/commands/${commands[i]}`);
+    const command = new FILE(client);
 
     client.commands.set(command.name, command);
     console.log(`[Commande] ${command.name} chargée !`);
@@ -42,13 +42,13 @@ fs.readdir("./src/events", (err, files) => {
   if(err) throw err;
   if(!files.length) return console.log("[Alerte] Aucun event trouvée !");
 
-  const events = files.filter(c => c.split(".").pop() === "js");
+  const events = files.filter((c) => c.split(".").pop() === "js");
 
   for (let i = 0; i < events.length; i++) {
     if (!events.length) return console.log("[Alerte] Aucun event trouvée !");
 
-    const file = require(`./src/events/${events[i]}`);
-    const event = new file(client);
+    const FILE = require(`./src/events/${events[i]}`);
+    const event = new FILE(client);
 
     console.log(`[Event] ${event.name} chargé !`);
     client.on(events[i].split(".")[0], (args) => event.run(args));
@@ -59,16 +59,16 @@ fs.readdir("./src/utils/helpers/", (err, files) => {
   if(err) throw err;
   if (!files.length) return console.log("[Alerte] Aucun plugin trouvé !");
 
-  const plugs = files.filter(c => c.split(".").pop() === "js");
+  const plugs = files.filter((c) => c.split(".").pop() === "js");
 
   for (let i = 0; i < plugs.length; i++) {
     if (!plugs.length) return console.log("[Alerte] Aucun plugin trouvé !");
 
-    const plug = require(`./src/utils/helpers/${plugs[i]}`);
-    const nplug = new plug(client);
+    const PLUG = require(`./src/utils/helpers/${plugs[i]}`);
+    const nplug = new PLUG(client);
 
     client.utils.set(plugs[i].split(".")[0], nplug);
-    console.log(`[Plugin] ${plugs[i].split(".")[0]} chargée !`);
+    console.log(`[Plugin] ${plugs[i].split(".")[0]} chargé !`);
   }
 });
 
@@ -77,4 +77,3 @@ process.on("unhandledRejection", (err) => {
 });
 
 client.login(config.BOT_TOKEN);
-

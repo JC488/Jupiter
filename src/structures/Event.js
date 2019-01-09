@@ -10,9 +10,9 @@ class Event {
     try {
       await this.run(event);
     } catch (err) {
-      console.error(e);
+      console.error(err);
     }
   }
-};
+}
 
 module.exports = Event;

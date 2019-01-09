@@ -1,7 +1,7 @@
 "use strict";
 
-const Command = require('../structures/Command');
-const Discord = require('discord.js');
+const Command = require("../structures/Command");
+const Discord = require("discord.js");
 const util = require("util");
 
 class Eval extends Command {
@@ -18,7 +18,9 @@ class Eval extends Command {
   async run(message, args) {
     let code = args.slice(1).join(" ");
 
-    if(message.author.id != this.client.config.OWNER_ID) return message.channel.send("⚠ Tu n'as pas les permissions suffisantes pour exécuter cette commande.");
+    if(message.author.id !== this.client.config.OWNER_ID) {
+      return message.channel.send("⚠ Tu n'as pas les permissions suffisantes pour exécuter cette commande.");
+    }
       try {
 
         let ev = eval(code);
@@ -34,12 +36,12 @@ class Eval extends Command {
         }
 
         await message.react("✅");
-        await message.channel.send('📝 Eval réussi avec succès:\n'+ '\`\`\`JS\n' + str + '\`\`\`');
+        await message.channel.send(`📝 Eval réussi avec succès:\n\`\`\`JS\n${str}\`\`\``);
       } catch (err) {
         await message.react("❌");
-        await message.channel.send('💥 Eval échoué:\n'+'\`\`\`JS\n' + err + '\`\`\`');
+        await message.channel.send(`💥 Eval échoué:\n\`\`\`JS\n${err}\`\`\``);
       }
   }
-};
+}
 
 module.exports = Eval;
