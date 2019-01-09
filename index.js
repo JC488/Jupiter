@@ -48,14 +48,14 @@ fs.readdir("./src/commands", (err, files) => {
 fs.readdir("./src/events", (err, files) => {
   if(err) throw err;
   if(!files.length) {
-    return client.logger.warn("[Alerte] Aucun event trouvée !");
+    return client.logger.warn("[Alerte] Aucun event trouvé !");
   }
 
   const events = files.filter((c) => c.split(".").pop() === "js");
 
   for (let i = 0; i < events.length; i++) {
     if (!events.length) {
-      return client.logger.warn("[Alerte] Aucun event trouvée !");
+      return client.logger.warn("[Alerte] Aucun event trouvé !");
     }
 
     const FILE = require(`./src/events/${events[i]}`);
