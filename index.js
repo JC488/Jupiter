@@ -20,8 +20,10 @@ class Jupiter extends Discord.Client {
 const client = new Jupiter();
 
 fs.readdir("./src/commands", (err, files) => {
-  if(err) throw err;
-  if(!files.length) {
+  if(err) {
+    throw err;
+  }
+  if(files.length < 0) {
     return client.logger.warn("Aucune commande trouvée !");
   }
 
@@ -46,16 +48,18 @@ fs.readdir("./src/commands", (err, files) => {
 });
 
 fs.readdir("./src/events", (err, files) => {
-  if(err) throw err;
-  if(!files.length) {
-    return client.logger.warn("[Alerte] Aucun event trouvé !");
+  if(err) {
+    throw err;
+  }
+  if(files.length < 0) {
+    return client.logger.warn("[Alerte] Aucun event trouvée !");
   }
 
   const events = files.filter((c) => c.split(".").pop() === "js");
 
   for (let i = 0; i < events.length; i++) {
     if (!events.length) {
-      return client.logger.warn("[Alerte] Aucun event trouvé !");
+      return client.logger.warn("[Alerte] Aucun event trouvée !");
     }
 
     const FILE = require(`./src/events/${events[i]}`);
@@ -71,3 +75,4 @@ process.on("unhandledRejection", (err) => {
 });
 
 client.login(config.BOT_TOKEN);
+
