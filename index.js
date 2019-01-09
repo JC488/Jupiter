@@ -29,8 +29,8 @@ fs.readdir("./src/commands", (err, files) => {
 
   const commands = files.filter((c) => c.split(".").pop() === "js");
 
-  for (let i = 0; i < commands.length; i++) {
-    if (!commands.length) {
+  for(let i = 0; i < commands.length; i++) {
+    if(!commands.length) {
       return client.logger.warn("Aucune commande trouvée !");
     }
     const FILE = require(`./src/commands/${commands[i]}`);
@@ -39,8 +39,8 @@ fs.readdir("./src/commands", (err, files) => {
     client.commands.set(command.name, command);
     client.logger.log(`[Commande] ${command.name} chargée !`);
 
-    if (command && command.aliases) {
-      for (let i = 0; i < command.aliases.length; i++) {
+    if(command && command.aliases) {
+      for(let i = 0; i < command.aliases.length; i++) {
         client.aliases.set(command.aliases[i], command);
       }
     }
@@ -57,8 +57,8 @@ fs.readdir("./src/events", (err, files) => {
 
   const events = files.filter((c) => c.split(".").pop() === "js");
 
-  for (let i = 0; i < events.length; i++) {
-    if (!events.length) {
+  for(let i = 0; i < events.length; i++) {
+    if(!events.length) {
       return client.logger.warn("[Alerte] Aucun event trouvée !");
     }
 
