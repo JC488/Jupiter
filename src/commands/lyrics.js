@@ -16,9 +16,9 @@ class Lyrics extends Command {
   async run(message, args) {
     let search = args.slice(1).join(" ");
     if(!search) {
-      return this.client.utils.get("music").sendEmbed(message, "⚠ Donnez-moi un nom de chanson à rechercher !");
+      return this.client.music.sendEmbed(message, "⚠ Donnez-moi un nom de chanson à rechercher !");
     }
-    await this.client.utils.get("music").searchLyrics(message, search);
+    await this.client.music.searchLyrics(message, search);
   }
 }
 

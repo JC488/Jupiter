@@ -15,12 +15,12 @@ class Leave extends Command {
 
   async run(message, args) {
     if(!message.member.voiceChannel) {
-      return this.client.utils.get("music").sendEmbed(message, "⚠ Vous devez être connecté dans un salon-vocal !");
+      return this.client.music.sendEmbed(message, "⚠ Vous devez être connecté dans un salon-vocal !");
     }
-      let queue = this.client.utils.get("music").getQueue(message.guild.id);
+      let queue = this.client.music.getQueue(message.guild.id);
 
       await message.member.voiceChannel.leave();
-      await this.client.utils.get("music").sendEmbed(message, "Je suis bien sortie du salon-vocal à votre demande ! ✅");
+      await this.client.music.sendEmbed(message, "Je suis bien sortie du salon-vocal à votre demande ! ✅");
       if(queue.length === 0) {
         return; 
       }

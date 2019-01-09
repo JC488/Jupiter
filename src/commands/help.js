@@ -20,7 +20,7 @@ class Help extends Command {
     if(!argument) {
       let categories = [];
 
-      await this.client.commands.filter((c) => c.category != "Owner").forEach(async(c) => {
+      await this.client.commands.filter((c) => c.category !== "Owner").forEach(async(c) => {
         if(!categories.includes(c.category)){
           await categories.push(c.category);
         }
@@ -31,12 +31,12 @@ class Help extends Command {
         .setAuthor(`${this.client.user.username}`, `${this.client.user.displayAvatarURL}`)
         .setFooter(`${this.client.user.username} © 2019 | Type '!help <command>' to display command details.`);
         await categories.sort().map(async(c) => {
-          embed.addField(c, await this.client.commands.filter((command) => command.category === c).map(command => `\`${command.name}\``).join(", "), false);
+          embed.addField(c, await this.client.commands.filter((command) => command.category === c).map((command) => `\`${command.name}\``).join(", "), false);
         });
         await message.channel.send(embed);
     } else {
       if(!this.client.commands.has(argument)) {
-        return this.client.utils.get("music").sendEmbed(message, "⚠ Aucune commande de ce nom trouvé !");
+        return this.client.music.sendEmbed(message, "⚠ Aucune commande de ce nom trouvé !");
       }
       
         let command = this.client.commands.get(argument);

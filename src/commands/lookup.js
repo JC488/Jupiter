@@ -19,12 +19,12 @@ class Lookup extends Command {
     let client = this.client;
     let search = args.slice(2).join(" ");
     if(!args.slice(1).join(" ")) {
-        return client.utils.get("music").sendEmbed(message, `⚠ L'utilisation correcte est: ${client.config.PREFIX}lookup <\`user\` ou \`guild\`> <ID>`);
+        return client.music.sendEmbed(message, `⚠ L'utilisation correcte est: ${client.config.PREFIX}lookup <\`user\` ou \`guild\`> <ID>`);
     }
       switch (args[1]) {
           case "user":
               if(!search) {
-                  return client.utils.get("music").sendEmbed(message, "⚠ Donnez-moi l'ID d'un utilisateur Discord !");
+                  return client.music.sendEmbed(message, "⚠ Donnez-moi l'ID d'un utilisateur Discord !");
               }
                 await axios.get(`https://discordapp.com/api/v6/users/${search}`, {
                     headers: {
@@ -35,7 +35,7 @@ class Lookup extends Command {
                 })
                     .then(async(res) => {
                         if(!res.data) {
-                            return client.utils.get("music").sendEmbed(message, "❌ Aucun utilisateur trouvé !");
+                            return client.music.sendEmbed(message, "❌ Aucun utilisateur trouvé !");
                         }
                           let embed = new Discord.RichEmbed()
                           .setColor(0x36393f)
@@ -47,13 +47,13 @@ class Lookup extends Command {
                     })
                         .catch((err) => {
                             if(err) {
-                                return client.utils.get("music").sendEmbed(message, "❌ Une erreur est survenue !");
+                                return client.music.sendEmbed(message, "❌ Une erreur est survenue !");
                             }
                         });
               break;
           case "guild":
               if(!search) {
-                  return client.utils.get("music").sendEmbed(message, "⚠ Donnez-moi l'ID d'un utilisateur Discord !");
+                  return client.music.sendEmbed(message, "⚠ Donnez-moi l'ID d'un utilisateur Discord !");
               }
                 await axios.get(`https://discordapp.com/api/v6/guilds/${search}`, {
                     headers: {
@@ -64,7 +64,7 @@ class Lookup extends Command {
                 })
                     .then(async(res) => {
                         if(!res.data) {
-                            return client.utils.get("music").sendEmbed(message, "❌ Aucune guild trouvée !");
+                            return client.music.sendEmbed(message, "❌ Aucune guild trouvée !");
                         }
                           let embed = new Discord.RichEmbed()
                           .setColor(0x36393f)
@@ -79,12 +79,12 @@ class Lookup extends Command {
                     })
                         .catch((err) => {
                             if(err) {
-                                return client.utils.get("music").sendEmbed(message, "❌ Une erreur est survenue !");
+                                return client.music.sendEmbed(message, "❌ Une erreur est survenue !");
                             }
                         });
               break;
           default:
-              client.utils.get("music").sendEmbed(message, `⚠ L'utilisation correcte est: ${client.config.PREFIX}lookup <\`user\` ou \`guild\`> <ID>`);
+              client.music.sendEmbed(message, `⚠ L'utilisation correcte est: ${client.config.PREFIX}lookup <\`user\` ou \`guild\`> <ID>`);
               break;
       }
   }

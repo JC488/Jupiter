@@ -3,7 +3,6 @@
 const Discord = require("discord.js");
 const ytdl = require("ytdl-core");
 const search = require("youtube-search");
-const ffmpeg = require("ffmpeg-binaries");
 const axios = require("axios");
 const cheerio = require("cheerio");
 
@@ -42,18 +41,18 @@ class Music {
     let client = this.client;
     search(song, client.config.MUSIC_OPTS, async function(err, results) {
       if(err) {
-        return client.utils.get("music").sendEmbed(message, "⚠ Un bug est survenu !");
+        return client.music.sendEmbed(message, "⚠ Un bug est survenu !");
       }
         let pre = "";
         let msg = "";
 
         if(results.length === 0) {
-          return client.utils.get("music").sendEmbed(message, "⚠ Aucune musique trouvée.");
+          return client.music.sendEmbed(message, "⚠ Aucune musique trouvée.");
         }
         if(results.length > 1) {
           pre += `**${results.length}** résultats pour: \`${song}\``;
         } else {
-          return await client.utils.get("music").addToQueue(message, await client.utils.get("music").getQueue(message.guild.id), results[0]);
+          return await client.music.addToQueue(message, await client.music.getQueue(message.guild.id), results[0]);
         }   
 
         for (var i = 0; i < results.length; i++){
@@ -70,21 +69,21 @@ class Music {
           await m.channel.awaitMessages(filter, {max: 1, time: 20000}).then(async(collected) => {
             collected = collected.first();
             if(collected.content.toLowerCase() === "annuler") {
-              return client.utils.get("music").sendEmbed(message, "Mode annulé ! ✅");
+              return client.music.sendEmbed(message, "Mode annulé ! ✅");
             }
               let choice = await collected.content.match(/\d{1}/g);
               if(!choice || !choice.length) {
-                return client.utils.get("music").sendEmbed(message, "⚠ Ce n'est pas un choix valide !");
+                return client.music.sendEmbed(message, "⚠ Ce n'est pas un choix valide !");
               }
                 choice = parseInt(choice[0])-1;
                 if(isNaN(choice) || choice > results.length || choice < 0) {
-                  return client.utils.get("music").sendEmbed(message, "⚠ Ce n'est pas un choix qui fait parti de la selection !");
+                  return client.music.sendEmbed(message, "⚠ Ce n'est pas un choix qui fait parti de la selection !");
                 }
-                  await client.utils.get("music").addToQueue(message, await client.utils.get("music").getQueue(message.guild.id), results[choice]);
+                  await client.music.addToQueue(message, await client.music.getQueue(message.guild.id), results[choice]);
                   await m.delete();
           }).catch((err) => {
             if(err) {
-              return client.utils.get("music").sendEmbed(message, "⚠ Aucun choix donné à temps, j\'ai clos la sélection.");
+              return client.music.sendEmbed(message, "⚠ Aucun choix donné à temps, j\'ai clos la sélection.");
             }
           });
         });
@@ -110,7 +109,7 @@ class Music {
         });
 
         stream.on("error", (error) => {
-            return client.utils.get("music").sendEmbed(message, "⚠ Un bug est survenu.");
+            return client.music.sendEmbed(message, "⚠ Un bug est survenu.");
         });
 
         let test;
@@ -129,20 +128,20 @@ class Music {
         });
                   
         if(queue.length > 1) {
-          client.utils.get("music").sendEmbed(message, `✍ Nouvel ajout dans la queue: \`${queue[queue.length - 1].title}\``);
+          client.music.sendEmbed(message, `✍ Nouvel ajout dans la queue: \`${queue[queue.length - 1].title}\``);
         }
           
         if(test) {
           setTimeout(async() => {
-            await client.utils.get("music").play(message, queue);
+            await client.music.play(message, queue);
           }, 1000);
         }
       } else {
-          return client.utils.get("music").sendEmbed(message, "⚠ Aucune musique receptionnée !");
+          return client.music.sendEmbed(message, "⚠ Aucune musique receptionnée !");
       }
     } catch (err) {
       if(err) {
-        return client.utils.get("music").sendEmbed(message, "❌ Une erreur est survenue !");
+        return client.music.sendEmbed(message, "❌ Une erreur est survenue !");
       }
     }
   }
@@ -155,16 +154,16 @@ class Music {
   play(message, queue) {
     let client = this.client;
     if(!message.guild.voiceConnection) {
-      return client.utils.get("music").sendEmbed(message, "⚠ Je ne suis pas connecté !");
+      return client.music.sendEmbed(message, "⚠ Je ne suis pas connecté !");
     }
     if(!message.member.voiceChannel) {
-      return client.utils.get("music").sendEmbed(message, "⚠ Vous devez être connecté dans un salon-vocal !");
+      return client.music.sendEmbed(message, "⚠ Vous devez être connecté dans un salon-vocal !");
     }
     if(!message.member.voiceChannel.speakable) {
-      return client.utils.get("music").sendEmbed(message, "⚠ Je n'ai pas la permission de `rejoindre` ou `parler` dans ce salon !");
+      return client.music.sendEmbed(message, "⚠ Je n'ai pas la permission de `rejoindre` ou `parler` dans ce salon !");
     }
     if(queue.length === 0) {
-      return client.utils.get("music").sendEmbed(message, "⚠ La queue est vide !");
+      return client.music.sendEmbed(message, "⚠ La queue est vide !");
     }
     
       let embed = new Discord.RichEmbed()
@@ -183,26 +182,26 @@ class Music {
 
       dispatcher = message.guild.voiceConnection.playStream(queue[0].toplay);
       dispatcher.on("error", async() => {
-        await client.utils.get("music").sendEmbed(message, "⚠ Un bug est survenu !");
+        await client.music.sendEmbed(message, "⚠ Un bug est survenu !");
         await queue.shift();
-        await client.utils.get("music").play(message, queue);
+        await client.music.play(message, queue);
       });
       dispatcher.on("end", () => { 
-        if(message.guild.me.voiceChannel.members.filter(m => m.id != client.user.id).size === 0) {
+        if(message.guild.me.voiceChannel.members.filter((m) => m.id !== client.user.id).size === 0) {
           message.guild.me.voiceChannel.leave()
             .then(async() => {
-              await client.utils.get("music").sendEmbed(message, "C'est pas très sympa de me laisser toute seule ! 😡");
+              await client.music.sendEmbed(message, "C'est pas très sympa de me laisser toute seule ! 😡");
             })
               .catch((err) => {
                 if(err) {
-                  return client.utils.get("music").sendEmbed(message, "❌ Une erreur est survenue !");
+                  return client.music.sendEmbed(message, "❌ Une erreur est survenue !");
                 }
               });
         } else {
           setTimeout(async() => {
             if(queue.length > 0) { 
               await queue.shift();
-              await client.utils.get("music").play(message, queue);
+              await client.music.play(message, queue);
             }
           }, 1000);
         }
@@ -219,12 +218,12 @@ class Music {
     let client = this.client;
     search(song, client.config.MUSIC_OPTS, function(err, results) {
       if(err) {
-        return client.utils.get("music").sendEmbed(message, "⚠ Un bug est survenu !");
+        return client.music.sendEmbed(message, "⚠ Un bug est survenu !");
       }
       if(results.length === 0) {
-        return client.utils.get("music").sendEmbed(message, "⚠ Aucune musique trouvée.");
+        return client.music.sendEmbed(message, "⚠ Aucune musique trouvée.");
       }
-        client.utils.get("music").addToQueue(message, queue, results[0]);
+        client.music.addToQueue(message, queue, results[0]);
     });
   }
 
@@ -247,25 +246,23 @@ class Music {
         await axios.get(link).then(async(res) => {
           let $$ = await cheerio.load(res.data);
           let lyrics = await $$("p[class=\"mxm-lyrics__content \"]").text();
-          if(lyrics.length > 2032) {
-            lyrics = lyrics.substr(0, 2032);
-            lyrics = lyrics + "\n**Too long...**";
+          if(lyrics.length > 2031) {
+            lyrics = lyrics.substr(0, 2031);
+            lyrics = lyrics + "\n**Trop long...**";
           } else if(lyrics.length === 0) {
-            if(err) {
-              return client.utils.get("music").sendEmbed(message, "❌ Aucune parole trouvées !");
-            }
+              return client.music.sendEmbed(message, "❌ Aucune parole trouvées !");
           }
-          await client.utils.get("music").sendEmbed(message, lyrics);
+          await client.music.sendEmbed(message, lyrics);
         })
           .catch((err) => {
             if(err) {
-              return client.utils.get("music").sendEmbed(message, "❌ Une erreur est survenue !");
+              return client.music.sendEmbed(message, "❌ Une erreur est survenue !");
             }
           });
       })
         .catch((err) => {
           if(err) {
-            return client.utils.get("music").sendEmbed(message, "❌ Une erreur est survenue !");
+            return client.music.sendEmbed(message, "❌ Une erreur est survenue !");
           }
         });
   }
@@ -278,10 +275,10 @@ class Music {
   changeVolume(message, volume) {
     let client = this.client;
     if(parseInt(volume) > 100) {
-      return client.utils.get("music").sendEmbed(message, "⚠ Le volume ne peut atteindre que jusqu'à 100% maximum !");
+      return client.music.sendEmbed(message, "⚠ Le volume ne peut atteindre que jusqu'à 100% maximum !");
     }
       message.guild.voiceConnection.player.dispatcher.setVolume((parseInt(volume) / 100));
-      client.utils.get("music").sendEmbed(message, `🔊 Le volume est désormais à \`${parseInt(volume)}/100\``);
+      client.music.sendEmbed(message, `🔊 Le volume est désormais à \`${parseInt(volume)}/100\``);
   }
 
   /**

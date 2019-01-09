@@ -15,9 +15,9 @@ class Nowplaying extends Command {
 }
 
   async run(message, args) {
-    let queue = this.client.utils.get("music").getQueue(message.guild.id);
+    let queue = this.client.music.getQueue(message.guild.id);
     if(queue.length === 0) {
-      return this.client.utils.get("music").sendEmbed(message, "⚠ Il n'y a pas de musique dans la queue !");
+      return this.client.music.sendEmbed(message, "⚠ Il n'y a pas de musique dans la queue !");
     }
 
     let embed = new Discord.RichEmbed()

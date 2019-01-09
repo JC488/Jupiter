@@ -17,15 +17,15 @@ class Stats extends Command {
 
   async run(message, args) {
     let ownerID = this.client.config.OWNER_ID;
-    let guilds = await this.client.shard.fetchClientValues('guilds.size');
+    let guilds = await this.client.shard.fetchClientValues("guilds.size");
       guilds.reduce((prev, val) => prev + val, 0);
-    let users = await this.client.shard.fetchClientValues('users.size');
+    let users = await this.client.shard.fetchClientValues("users.size");
       users.reduce((prev, val) => prev + val, 0);
-    let channels = await this.client.shard.fetchClientValues('channels.size');
+    let channels = await this.client.shard.fetchClientValues("channels.size");
       channels.reduce((prev, val) => prev + val, 0);
-    let voiceConnections = await this.client.shard.fetchClientValues('voiceConnections.size');
+    let voiceConnections = await this.client.shard.fetchClientValues("voiceConnections.size");
       voiceConnections.reduce((prev, val) => prev + val, 0);
-    let uptime = await this.client.shard.fetchClientValues('uptime');
+    let uptime = await this.client.shard.fetchClientValues("uptime");
 
     let embed = new Discord.RichEmbed()
     .setColor(0x36393f)

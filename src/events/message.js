@@ -10,7 +10,7 @@ class Message extends Event {
     }
 
     async run(message) {
-        if(message.channel.type == "dm") {
+        if(message.channel.type === "dm") {
             return;
         }
         if(message.author.bot) {
