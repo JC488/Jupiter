@@ -18,12 +18,16 @@ const client = new Jupiter();
 
 fs.readdir("./src/commands", (err, files) => {
   if(err) throw err;
-  if(!files.length) return console.log("[Alerte] Aucune commande trouvée !");
+  if(!files.length) {
+    return console.log("[Alerte] Aucune commande trouvée !");
+  }
 
   const commands = files.filter((c) => c.split(".").pop() === "js");
 
   for (let i = 0; i < commands.length; i++) {
-    if (!commands.length) return console.log("[Alerte] Aucune commande trouvée !");
+    if (!commands.length) {
+      return console.log("[Alerte] Aucune commande trouvée !");
+    }
     const FILE = require(`./src/commands/${commands[i]}`);
     const command = new FILE(client);
 
@@ -40,12 +44,16 @@ fs.readdir("./src/commands", (err, files) => {
 
 fs.readdir("./src/events", (err, files) => {
   if(err) throw err;
-  if(!files.length) return console.log("[Alerte] Aucun event trouvée !");
+  if(!files.length) {
+    return console.log("[Alerte] Aucun event trouvée !");
+  }
 
   const events = files.filter((c) => c.split(".").pop() === "js");
 
   for (let i = 0; i < events.length; i++) {
-    if (!events.length) return console.log("[Alerte] Aucun event trouvée !");
+    if (!events.length) {
+      return console.log("[Alerte] Aucun event trouvée !");
+    }
 
     const FILE = require(`./src/events/${events[i]}`);
     const event = new FILE(client);
@@ -57,12 +65,16 @@ fs.readdir("./src/events", (err, files) => {
 
 fs.readdir("./src/utils/helpers/", (err, files) => {
   if(err) throw err;
-  if (!files.length) return console.log("[Alerte] Aucun plugin trouvé !");
+  if (!files.length) {
+    return console.log("[Alerte] Aucun plugin trouvé !");
+  }
 
   const plugs = files.filter((c) => c.split(".").pop() === "js");
 
   for (let i = 0; i < plugs.length; i++) {
-    if (!plugs.length) return console.log("[Alerte] Aucun plugin trouvé !");
+    if (!plugs.length) {
+      return console.log("[Alerte] Aucun plugin trouvé !");
+    }
 
     const PLUG = require(`./src/utils/helpers/${plugs[i]}`);
     const nplug = new PLUG(client);
