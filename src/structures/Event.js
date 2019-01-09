@@ -10,7 +10,7 @@ class Event {
     try {
       await this.run(event);
     } catch (err) {
-      console.error(err);
+      this.client.logger.error(err);
     }
   }
 }
