@@ -49,7 +49,7 @@ class Music {
         if(results.length === 0) {
           return client.music.sendEmbed(message, "⚠ Aucune musique trouvée.");
         }
-        if(results.length > 1) {
+        else if(results.length > 1) {
           pre += `**${results.length}** résultats pour: \`${song}\``;
         } else {
           return await client.music.addToQueue(message, await client.music.getQueue(message.guild.id), results[0]);
