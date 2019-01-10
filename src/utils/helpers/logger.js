@@ -26,9 +26,9 @@ class Logger {
   warn(text) {
     let date = new Date();
     if(!text) {
-      return Console.log(`${chalk.keyword("green")("["+resolveNum(date.getDate())+"/"+resolveNum(date.getMonth()+1)+"/"+date.getFullYear()+"]")}${chalk.keyword("orange")("[WARN] Vous devez inclure un texte pour warn")}`);
+      return Console.log(`[${chalk.keyword("green")(resolveNum(date.getDate())+"/"+resolveNum(date.getMonth()+1)+"/"+date.getFullYear())}] [${chalk.keyword("orange")("Warn")}] Vous devez inclure un texte pour afficher un warn`);
     }
-    return Console.log(`${chalk.keyword("green")("["+resolveNum(date.getDate())+"/"+resolveNum(date.getMonth()+1)+"/"+date.getFullYear()+"]")}${chalk.keyword("orange")("[WARN] "+text)}`);
+    return Console.log(`[${chalk.keyword("green")(resolveNum(date.getDate())+"/"+resolveNum(date.getMonth()+1)+"/"+date.getFullYear())}] [${chalk.keyword("orange")("Warn")}] ${text}`);
   }
 
   /**
@@ -38,9 +38,9 @@ class Logger {
   log(text) {    
     let date = new Date();
     if(!text) {
-      return Console.log(`${chalk.keyword("green")("["+resolveNum(date.getDate())+"/"+resolveNum(date.getMonth()+1)+"/"+date.getFullYear()+"]")}${chalk.keyword("orange")("[WARN] Vous devez inclure un texte pour log")}`);
+      return Console.log(`[${chalk.keyword("green")(resolveNum(date.getDate())+"/"+resolveNum(date.getMonth()+1)+"/"+date.getFullYear())}] [${chalk.keyword("orange")("Warn")}] Vous devez inclure un texte pour afficher un log`);
     }
-    return Console.log(`${chalk.keyword("green")("["+resolveNum(date.getDate())+"/"+resolveNum(date.getMonth()+1)+"/"+date.getFullYear()+"]")}${chalk.keyword("cyan")("[LOG] "+text)}`);
+    return Console.log(`[${chalk.keyword("green")(resolveNum(date.getDate())+"/"+resolveNum(date.getMonth()+1)+"/"+date.getFullYear())}] [${chalk.keyword("magenta")("Info")}] ${text}`);
   }
 
   /**
@@ -50,10 +50,11 @@ class Logger {
   error(text) {    
     let date = new Date();
     if(!text) {
-      return Console.log(`${chalk.keyword("green")("["+resolveNum(date.getDate())+"/"+resolveNum(date.getMonth()+1)+"/"+date.getFullYear()+"]")}${chalk.keyword("orange")("[WARN] Vous devez inclure un texte pour afficher une erreur")}`);
+      return Console.log(`[${chalk.keyword("green")(resolveNum(date.getDate())+"/"+resolveNum(date.getMonth()+1)+"/"+date.getFullYear())}] [${chalk.keyword("orange")("Warn")}] Vous devez inclure un texte pour afficher une erreur`);
     }
-    return Console.log(`${chalk.keyword("green")("["+resolveNum(date.getDate())+"/"+resolveNum(date.getMonth()+1)+"/"+date.getFullYear()+"]")}${chalk.keyword("red")("[ERROR] "+text)}`);
+    return Console.log(`[${chalk.keyword("green")(resolveNum(date.getDate())+"/"+resolveNum(date.getMonth()+1)+"/"+date.getFullYear())}] [${chalk.keyword("red")("Error")}] ${text}`);
   }
 }
 
 module.exports = Logger;
+
