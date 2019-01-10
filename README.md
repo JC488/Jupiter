@@ -18,3 +18,14 @@ npm test
 ```
 node shards.js
 ```
+
+### Images
+<center>
+  <a href="https://github.com/Sworder71/Jupiter">
+    <img src="https://cdn.discordapp.com/attachments/532919394435727362/532919542490333195/unknown.png" alt="image1">
+  </a>
+  <br>
+  <a href="https://github.com/Sworder71/Jupiter">
+    <img src="https://cdn.discordapp.com/attachments/532919394435727362/532919746090237952/unknown.png" alt="image2">
+  </a>
+</center>
