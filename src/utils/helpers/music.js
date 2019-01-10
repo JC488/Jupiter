@@ -226,7 +226,22 @@ class Music {
         client.music.addToQueue(message, queue, results[0]);
     });
   }
-
+  
+  /**
+   * Shuffles all songs of the queue.
+   * @param {Array} queue The queue of the guild
+   */
+  shuffle(queue) {
+    let i = queue.length;
+    while (i) {
+      let random = Math.floor(Math.random() * i);
+      let y = queue[--i];
+        queue[i] = queue[random];
+        queue[random] = y;
+    }
+    return queue;
+  }
+  
   /**
    * Search lyrics of a song.
    * @param {Object} message
