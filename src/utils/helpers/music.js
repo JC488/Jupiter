@@ -301,6 +301,40 @@ class Music {
   }
 
   /**
+   * Moves the bot to another voice channel.
+   * @param {Object} message
+   * @param {string} channelID The ID of the channel
+   */
+  moveTo(message, channelID) {
+    let client = this.client;
+    let channel = message.guild.channels.get(channelID);
+    if(!channel) {
+      return client.music.sendEmbed(message, "⚠ Ce salon n'existe pas !");
+    }
+    else if(channel.type !== "voice") {
+      return client.music.sendEmbed(message, "⚠ Ce salon n'est pas un salon vocal !");
+    }
+    else if(!channel.joinable) {
+      return client.music.sendEmbed(message, "⚠ Je n'ai pas la permission de `rejoindre` ou `parler` dans ce salon !");
+    }
+    else if(!channel.speakable) {
+      return client.music.sendEmbed(message, "⚠ Je n'ai pas la permission de `rejoindre` ou `parler` dans ce salon !");
+    }      
+      channel.join()
+        .then(async(connection) => {
+          await connection.sendVoiceStateUpdate({
+            self_deaf: true
+          });
+          await client.music.sendEmbed(message, `✅ J'ai bien rejoins le salon **${channel.toString()}** !`);
+        })
+          .catch((err) => {
+            if(err) {
+              return client.music.sendEmbed(message, "❌ Une erreur est survenue !");
+            }
+          });
+  }
+  
+  /**
    * Returns message with an embed.
    * @param {Object} message
    * @param {string} content The content
