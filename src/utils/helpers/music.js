@@ -265,7 +265,7 @@ class Music {
         await axios.get(link).then(async(res) => {
           let $$ = await cheerio.load(res.data);
           let lyrics = await $$("p[class=\"mxm-lyrics__content \"]").text();
-          if(lyrics.length > 2031) {
+          if(lyrics.length > 2048) {
             lyrics = lyrics.substr(0, 2031);
             lyrics = lyrics + "\n**Trop long...**";
           } else if(lyrics.length === 0) {
