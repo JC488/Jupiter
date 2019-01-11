@@ -27,7 +27,7 @@ class Repeat extends Command {
       return this.client.music.sendEmbed(message, ":point_up::skin-tone-3: Je ne joue actuellement pas.");
     }
         let queue = this.client.music.getQueue(message.guild.id);
-        if (queue.length === 0) {
+        if(queue.length === 0) {
           return this.client.music.sendEmbed(message, "⚠ Il n'y a **aucune** musique dans la queue !");
         }
             await this.client.music.repeat(message, queue, queue[0].link);
