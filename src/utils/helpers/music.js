@@ -179,11 +179,11 @@ class Music {
           quality: "highestaudio"
         });
       }
-
+    
       dispatcher = message.guild.voiceConnection.playStream(queue[0].toplay, {
         bitrate: 192000,
         volume: 0.2,
-        passes: 3
+        passes: 5
       });
       dispatcher.on("error", async() => {
         await client.music.sendEmbed(message, "⚠ Un bug est survenu !");
