@@ -236,7 +236,8 @@ class Music {
    * @param {Array} queue The queue of the guild
    */
   shuffle(queue) {
-    let i = queue.length;
+    queue = queue.reverse();
+    let i = (queue.length-1);
     while (i) {
       let random = Math.floor(Math.random() * i);
       let y = queue[--i];
