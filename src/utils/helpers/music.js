@@ -309,10 +309,10 @@ class Music {
     let client = this.client;
     let channel = message.guild.channels.get(channelID);
     if(!channel) {
-      return client.music.sendEmbed(message, "⚠ Ce salon n'existe pas !");
+      return client.music.sendEmbed(message, `⚠ Ce salon n'existe pas ! L'utilisation correcte est: ${client.config.PREFIX}moveto <\`ID\` du salon>`);
     }
     else if(channel.type !== "voice") {
-      return client.music.sendEmbed(message, "⚠ Ce salon n'est pas un salon vocal !");
+      return client.music.sendEmbed(message, `⚠ Ce n'est pas un salon vocal ! L'utilisation correcte est: ${client.config.PREFIX}moveto <\`ID\` du salon>`);
     }
     else if(!channel.joinable) {
       return client.music.sendEmbed(message, "⚠ Je n'ai pas la permission de `rejoindre` ou `parler` dans ce salon !");
