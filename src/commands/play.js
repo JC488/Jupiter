@@ -18,10 +18,10 @@ class Play extends Command {
     if(!message.member.voiceChannel) {
       return client.music.sendEmbed(message, "⚠ Vous devez être connecté dans un salon-vocal !");
     }
-    if(!message.member.voiceChannel.joinable) {
+    else if(!message.member.voiceChannel.joinable) {
       return client.music.sendEmbed(message, "⚠ Je n'ai pas la permission de `rejoindre` ou `parler` dans ce salon !");
     }
-    if(!message.member.voiceChannel.speakable) {
+    else if(!message.member.voiceChannel.speakable) {
       return client.music.sendEmbed(message, "⚠ Je n'ai pas la permission de `rejoindre` ou `parler` dans ce salon !");
     }
     
