@@ -28,7 +28,7 @@ class Repeat extends Command {
     }
         let queue = this.client.music.getQueue(message.guild.id);
         if (queue.length === 0) {
-          return this.client.music.sendEmbed(message, "⚠ Il n'y a **aucune** musiques dans la queue !");
+          return this.client.music.sendEmbed(message, "⚠ Il n'y a **aucune** musique dans la queue !");
         }
             await this.client.music.repeat(message, queue, queue[0].link);
   }
