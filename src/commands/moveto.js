@@ -17,7 +17,7 @@ class Moveto extends Command {
     let client = this.client;
     let search = args.slice(1).join(" ");
     if(!search) {
-        return client.music.sendEmbed(message, "⚠ Donnez-moi l'ID d'un salon vocal !");
+        return client.music.sendEmbed(message, `⚠ Donnez-moi l'ID d'un salon vocal ! L'utilisation correcte est: ${client.config.PREFIX}moveto <\`ID\` du salon>`);
     }
         await client.music.moveTo(message, search);
   }
