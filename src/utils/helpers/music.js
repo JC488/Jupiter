@@ -156,13 +156,13 @@ class Music {
     if(!message.guild.voiceConnection) {
       return client.music.sendEmbed(message, "⚠ Je ne suis pas connecté !");
     }
-    if(!message.member.voiceChannel) {
+    else if(!message.member.voiceChannel) {
       return client.music.sendEmbed(message, "⚠ Vous devez être connecté dans un salon-vocal !");
     }
-    if(!message.member.voiceChannel.speakable) {
+    else if(!message.member.voiceChannel.speakable) {
       return client.music.sendEmbed(message, "⚠ Je n'ai pas la permission de `rejoindre` ou `parler` dans ce salon !");
     }
-    if(queue.length === 0) {
+    else if(queue.length === 0) {
       return client.music.sendEmbed(message, "⚠ La queue est vide !");
     }
     
