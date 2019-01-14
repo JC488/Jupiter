@@ -1,4 +1,5 @@
 const Event = require("../structures/Event");
+const logo = require("asciiart-logo");
 
 class Ready extends Event {
   constructor(args) {
@@ -14,7 +15,20 @@ class Ready extends Event {
 
     await this.client.user.setPresence({game:{name: `${this.client.config.PREFIX}help`}});
     await new Promise((resolve) => setTimeout(resolve, 1000));
-    this.client.logger.log(`${this.client.user.username}#${this.client.user.discriminator} est en ligne sur la version ${require("../../package").version} de Jupiter`);
+    console.log(
+      logo({
+        name: `${this.client.user.username}`,
+        font: "Speed",
+        lineChars: 15,
+        padding: 5,
+        margin: 2
+      })
+      .emptyLine()
+      .right(`version ${require("../../package").version}`)
+      .emptyLine()
+      .wrap(`${this.client.user.username}#${this.client.user.discriminator} développé par Sworder.`)
+      .render()
+    );
   }
 }
 
