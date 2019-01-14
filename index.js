@@ -4,6 +4,7 @@ const Discord = require("discord.js");
 const fs = require("fs");
 const config = require("./config");
 const LOGGER = require("./src/utils/helpers/logger");
+const UPDATER = require("./src/utils/helpers/updateStats");
 const MUSIC = require("./src/utils/helpers/music");
 
 class Jupiter extends Discord.Client {
@@ -13,6 +14,7 @@ class Jupiter extends Discord.Client {
     this.aliases = new Discord.Collection();
     this.config = config;
     this.logger = new LOGGER(this);
+    this.updater = new UPDATER(this);
     this.music = new MUSIC(this);
   }
 }
