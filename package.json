@@ -14,6 +14,7 @@
   "author": "Sworder",
   "license": "Apache-2.0",
   "dependencies": {
+    "asciiart-logo": "^0.1.7",
     "chalk": "^2.4.2",
     "cheerio": "^1.0.0-rc.2",
     "discord.js": "^11.3.2",
