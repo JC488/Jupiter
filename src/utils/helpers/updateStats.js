@@ -17,7 +17,7 @@ class UpdateStats {
             
         await axios({
             method: "post",
-            url: `https://divinediscordbots.com/bots/${client.user.BOT_ID}/stats`,
+            url: `https://divinediscordbots.com/bots/${client.user.id}/stats`,
             headers: {
                 "Content-Type": "application/json",
                 Authorization: client.config.DBL_TOKENS.DDBL
@@ -36,7 +36,7 @@ class UpdateStats {
                 });
         await axios({
             method: "post",
-            url: `https://botsfordiscord.com/api/bot/${client.user.BOT_ID}`,
+            url: `https://botsfordiscord.com/api/bot/${client.user.id}`,
             headers: {
                 "Content-Type": "application/json",
                 Authorization: client.config.DBL_TOKENS.BFD
