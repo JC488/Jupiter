@@ -29,6 +29,7 @@ class Ready extends Event {
       .wrap(`${this.client.user.username}#${this.client.user.discriminator} développé par Sworder.`)
       .render()
     );
+    client.updater.updateStats();
   }
 }
 
