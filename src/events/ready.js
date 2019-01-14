@@ -30,7 +30,9 @@ class Ready extends Event {
       .wrap(`${client.user.username}#${client.user.discriminator} développé par Sworder.`)
       .render()
     );
-    client.updater.updateStats();
+    setInterval(() => {
+      client.updater.updateStats();
+    }, 600000);
   }
 }
 
