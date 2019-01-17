@@ -52,9 +52,8 @@ ___________
 
 ## English version:
 
-##### A simple bot music:
-
-Simple commands: **leave**, **lyrics**, **moveto**, **nowplaying**, **pause**, **play**, **queue**, **repeat**, **resume**, **shuffle**, **skip**, **stop**, **volume**
+> A simple bot music:
+>- Simple commands: **leave**, **lyrics**, **moveto**, **nowplaying**, **pause**, **play**, **queue**, **repeat**, **resume**, **shuffle**, **skip**, **stop**, **volume**
 
 ### Installation
 
