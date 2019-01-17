@@ -100,4 +100,5 @@ ___________
 ## Widgets:
 
 [![Bots for Discord](https://botsfordiscord.com/api/bot/531502637888045057/widget)](https://botsfordiscord.com/bots/531502637888045057)
+
 [![Divine Discord Bots](https://divinediscordbots.com/api/widget/531502637888045057.svg)](https://divinediscordbots.com/bots/531502637888045057)
