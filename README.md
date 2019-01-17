@@ -28,7 +28,7 @@ Il faut se rendre sur le fichier `config.js` et remplir les différents élémen
 >- **BFD** - Votre token de l'API de [Bots For Discord](https://botsfordiscord.com).
 >- **key** - Votre clé API YouTube. La clé API se trouve ici: [Google API](https://console.cloud.google.com/apis/dashboard).
 
-### Démarrer Jupiter
+### Démarrage
 - Avec node
 
 ```
