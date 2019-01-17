@@ -1,5 +1,10 @@
 # Jupiter
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/83452b5eca7b42b28674fb2766c378c2)](https://www.codacy.com/app/Sworder71/Jupiter?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Sworder71/Jupiter&amp;utm_campaign=Badge_Grade)
+[![Jupiter](https://img.shields.io/badge/Jupiter-1.5.0--dev-greenBright.svg)](https://github.com/Sworder71/Jupiter)
+[![NodeJS](https://img.shields.io/badge/nodejs-8.12.0-greenBright.svg)](https://nodejs.org/)
+[![DiscordJS](https://img.shields.io/badge/discord.js-11.3.2-greenBright.svg)](https://discord.js.org/#/)
+
+
 > Un simple bot musique:
 >- Des commandes basiques: **leave**, **lyrics**, **moveto**, **nowplaying**, **pause**, **play**, **queue**, **repeat**, **resume**, **shuffle**, **skip**, **stop**, **volume**
 
