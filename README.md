@@ -46,13 +46,6 @@ node shards.js
 pm2 start shards.js --name="Jupiter" && pm2 logs Jupiter
 ```
 
-### Images
-<center>
-  <a href="https://github.com/Sworder71/Jupiter">
-    <img src="https://cdn.discordapp.com/attachments/532919394435727362/532919542490333195/unknown.png" alt="image1">
-  </a>
-  <br>
-  <a href="https://github.com/Sworder71/Jupiter">
-    <img src="https://cdn.discordapp.com/attachments/532919394435727362/532919746090237952/unknown.png" alt="image2">
-  </a>
-</center>
+### Widgets
+[![Bots for Discord](https://botsfordiscord.com/api/bot/531502637888045057/widget)](https://botsfordiscord.com/bots/531502637888045057)
+[![Divine Discord Bots](https://divinediscordbots.com/api/widget/531502637888045057.svg)](https://divinediscordbots.com/bots/531502637888045057)
