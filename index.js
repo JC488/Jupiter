@@ -26,20 +26,20 @@ fs.readdir("./src/commands", (err, files) => {
     throw err;
   }
   if(files.length < 0) {
-    return client.logger.warn("Aucune commande trouvée !");
+    return client.logger.warn("Probleme | Aucune commande trouvée !");
   }
 
   const commands = files.filter((c) => c.split(".").pop() === "js");
 
   for(let i = 0; i < commands.length; i++) {
     if(!commands.length) {
-      return client.logger.warn("Aucune commande trouvée !");
+      return client.logger.warn("Probleme | Aucune commande trouvée !");
     }
     const FILE = require(`./src/commands/${commands[i]}`);
     const command = new FILE(client);
 
     client.commands.set(command.name, command);
-    client.logger.log(`[Commande] ${command.name} chargée !`);
+    client.logger.log(`Commande | ${command.name} chargée !`);
 
     if(command && command.aliases) {
       for(let i = 0; i < command.aliases.length; i++) {
@@ -54,20 +54,20 @@ fs.readdir("./src/events", (err, files) => {
     throw err;
   }
   if(files.length < 0) {
-    return client.logger.warn("[Alerte] Aucun event trouvée !");
+    return client.logger.warn("Probleme | Aucun event trouvée !");
   }
 
   const events = files.filter((c) => c.split(".").pop() === "js");
 
   for(let i = 0; i < events.length; i++) {
     if(!events.length) {
-      return client.logger.warn("[Alerte] Aucun event trouvée !");
+      return client.logger.warn("Probleme | Aucun event trouvée !");
     }
 
     const FILE = require(`./src/events/${events[i]}`);
     const event = new FILE(client);
 
-    client.logger.log(`[Event] ${event.name} chargé !`);
+    client.logger.log(`Event | ${event.name} chargé !`);
     client.on(events[i].split(".")[0], (args) => event.run(args));
   }
 });
