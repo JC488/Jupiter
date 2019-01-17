@@ -4,6 +4,9 @@
 [![NodeJS](https://img.shields.io/badge/node.js-8.12.0-greenBright.svg)](https://nodejs.org/)
 [![DiscordJS](https://img.shields.io/badge/discord.js-11.3.2-greenBright.svg)](https://discord.js.org/#/)
 
+___________
+
+## Version française:
 
 > Un simple bot musique:
 >- Des commandes basiques: **leave**, **lyrics**, **moveto**, **nowplaying**, **pause**, **play**, **queue**, **repeat**, **resume**, **shuffle**, **skip**, **stop**, **volume**
@@ -47,7 +50,7 @@ pm2 start shards.js --name="Jupiter" && pm2 logs Jupiter
 ```
 ___________
 
-## English version
+## English version:
 
 ##### A simple bot music:
 
