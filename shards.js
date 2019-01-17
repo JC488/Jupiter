@@ -9,10 +9,10 @@ const sharder = new ShardingManager("./index.js", {
 });
 
 sharder.on("launch", (shard) => {
-    logger.log(`[SHARDING] Shard #${shard.id} lancé !`);
+    logger.log(`Sharding | Shard #${shard.id} lancé !`);
 });
 
 sharder.spawn()
     .then(() => {
-        logger.log("[SHARDING] Tous les shards sont lancés !");
+        logger.log("Sharding | Tous les shards sont lancés !");
     });
