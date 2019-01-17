@@ -45,6 +45,55 @@ node shards.js
 ```
 pm2 start shards.js --name="Jupiter" && pm2 logs Jupiter
 ```
+___________
+
+## English version
+
+##### A simple bot music:
+
+Simple commands: **leave**, **lyrics**, **moveto**, **nowplaying**, **pause**, **play**, **queue**, **repeat**, **resume**, **shuffle**, **skip**, **stop**, **volume**
+
+### Installation
+
+ - Download the bot:
+
+```
+npm i github:Sworder71/Jupiter
+```
+
+ - Packages Installation:
+ 
+> **NOTE**: Please, check if your packages have the same versions of the git.
+
+```
+npm i --global
+```
+
+### Configuration
+
+To config the bot, edit the file `config.js` and fill with this elements:
+
+>- **PREFIX** - The bot prefix.
+>- **OWNER_ID** - The owner ID of the bot.
+>- **BOT_ID** - The bot ID.
+>- **BOT_TOKEN** - The bot token.
+>- **DDBL** - Your API token of [Divine Discord Bot List](https://divinediscordbots.com).
+>- **BFD** - Your API token of [Bots For Discord](https://botsfordiscord.com).
+>- **key** - Your API Key of YouTube, go here to get one: [Google API](https://console.cloud.google.com/apis/dashboard).
+
+### Start
+- With node
+
+```
+node shards.js
+```
+
+- With pm2
+
+```
+pm2 start shards.js --name="Jupiter" && pm2 logs Jupiter
+```
+___________
 
 ### Widgets
 [![Bots for Discord](https://botsfordiscord.com/api/bot/531502637888045057/widget)](https://botsfordiscord.com/bots/531502637888045057)
