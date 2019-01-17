@@ -27,11 +27,11 @@ class UpdateStats {
             }
         })
             .then(() => {
-                client.logger.log(`[STATS] Les stats du bot ont bien été postés sur DDBL !\nNombre de serveurs: ${server_count}`);
+                client.logger.log(`Stats | Les stats du bot ont bien été postés sur DDBL !\nNombre de serveurs: ${server_count}`);
             })
                 .catch((err) => {
                     if(err) {
-                        return client.logger.error(`[STATS] Une erreur est survenue lors de la mise à jours des stats sur DDBL !\n${err.stack}`);
+                        return client.logger.error(`Stats | Une erreur est survenue lors de la mise à jours des stats sur DDBL !\n${err.stack}`);
                     }
                 });
         await axios({
@@ -46,11 +46,11 @@ class UpdateStats {
             }
         })
             .then(() => {
-                client.logger.log(`[STATS] Les stats du bot ont bien été postés sur BFD !\nNombre de serveurs: ${server_count}`);
+                client.logger.log(`Stats | Les stats du bot ont bien été postés sur BFD !\nNombre de serveurs: ${server_count}`);
             })
                 .catch((err) => {
                     if(err) {
-                        return client.logger.error(`[STATS] Une erreur est survenue lors de la mise à jours des stats sur BFD !\n${err.stack}`);
+                        return client.logger.error(`Stats | Une erreur est survenue lors de la mise à jours des stats sur BFD !\n${err.stack}`);
                     }
                 });
     }
