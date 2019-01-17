@@ -4,7 +4,7 @@
 >- Des commandes basiques: **leave**, **lyrics**, **nowplaying**, **pause**, **play**, **queue**, **repeat**, **resume**, **shuffle**, **skip**, **stop**, **volume**
 
 ### Installation
- - Télécharger Jupiter:
+ - Télécharger le bot:
 
 ```
 npm i github:Sworder71/Jupiter
@@ -17,7 +17,7 @@ npm i github:Sworder71/Jupiter
 npm i --global
 ```
 
-- Configurer Jupiter:
+- Configurer le bot:
 
 Il faut se rendre sur le fichier `config.js` et remplir les différents éléments qui s'y trouve:
 >- **PREFIX** - Le prefix de votre bot.
