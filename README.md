@@ -26,7 +26,7 @@ Il faut se rendre sur le fichier `config.js` et remplir les différents élémen
 >- **BOT_TOKEN** - Le Token de votre bot.
 >- **DDBL** - Votre token de l'API de [Divine Discord Bot List](https://divinediscordbots.com).
 >- **BFD** - Votre token de l'API de [Bots For Discord](https://botsfordiscord.com).
->- **key** - Votre clé API YouTube. La clé API se trouve ici: [Google API](https://console.cloud.google.com/apis/dashboard).
+>- **key** - Votre clé API YouTube. Vous pouvez avoir une clé API ici: [Google API](https://console.cloud.google.com/apis/dashboard).
 
 ### Démarrage
 - Avec node
