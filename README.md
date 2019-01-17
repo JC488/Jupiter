@@ -4,19 +4,41 @@
 >- Des commandes basiques: **leave**, **lyrics**, **nowplaying**, **pause**, **play**, **queue**, **repeat**, **resume**, **shuffle**, **skip**, **stop**, **volume**
 
 ### Installation
+ - Télécharger Jupiter:
+
 ```
 npm i github:Sworder71/Jupiter
 ```
 
-### Démarrer Jupiter
-- Avec npm:
+ - Installer tout les packages:
+ 
+ > **NOTE**: Vous devez bien vérifier après l'installation que vous avez exactement les mêmes version de package que sur le git.
 ```
-npm test
+npm i --global
 ```
 
+- Configurer Jupiter:
+
+Il faut se rendre sur le fichier `config.js` et remplir les différents éléments qui s'y trouve:
+>- **PREFIX** - Le prefix de votre bot.
+>- **OWNER_ID** - L'ID du propriétaire du bot (Donc le votre).
+>- **BOT_ID** - L'ID de votre bot.
+>- **BOT_TOKEN** - Le Token de votre bot.
+>- **DDBL** - Votre token de l'API de [Divine Discord Bot List](https://divinediscordbots.com).
+>- **BFD** - Votre token de l'API de [Bots For Discord](https://botsfordiscord.com).
+>- **key** - Votre clé API YouTube. La clé API se trouve ici: [Google API](https://console.cloud.google.com/apis/dashboard).
+
+### Démarrer Jupiter
 - Avec node
+
 ```
 node shards.js
+```
+
+- Avec pm2
+
+```
+pm2 start shards.js --name="Jupiter" && pm2 logs Jupiter
 ```
 
 ### Images
