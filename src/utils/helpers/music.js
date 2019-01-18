@@ -219,7 +219,9 @@ class Music {
    */
   repeat(message, queue) {
     let client = this.client;
-    if(queue.length === 0) return client.music.sendEmbed(message, "⚠ Aucune musique dans la queue !");
+    if(queue.length === 0) {
+      return client.music.sendEmbed(message, "⚠ Aucune musique dans la queue !");
+    }
         client.music.addToQueue(message, queue, queue[0]);
   }
   
