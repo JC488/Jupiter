@@ -216,19 +216,11 @@ class Music {
    * Repeat the song.
    * @param {Object} message
    * @param {Array} queue The queue of the guild
-   * @param {string} song The song
    */
-  repeat(message, queue, song) {
+  repeat(message, queue) {
     let client = this.client;
-    search(song, client.config.MUSIC_OPTS, function(err, results) {
-      if(err) {
-        return client.music.sendEmbed(message, "⚠ Un bug est survenu !");
-      }
-      if(results.length === 0) {
-        return client.music.sendEmbed(message, "⚠ Aucune musique trouvée.");
-      }
-        client.music.addToQueue(message, queue, results[0]);
-    });
+    if(queue.length === 0) return client.music.sendEmbed(message, "⚠ Aucune musique dans la queue !");
+        client.music.addToQueue(message, queue, queue[0]);
   }
   
   /**
