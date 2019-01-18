@@ -29,7 +29,7 @@ class Help extends Command {
       let embed = new Discord.RichEmbed()
         .setColor(0x36393f)
         .setAuthor(`${this.client.user.username}`, `${this.client.user.displayAvatarURL}`)
-        .setFooter(`${this.client.user.username} © 2019 | Type '!help <command>' to display command details.`);
+        .setFooter(`${this.client.user.username} © 2019 | FR: Taper '!help <commande> pour afficher ma liste des commandes | EN: ' Type '!help <command>' to display command details.`);
         await categories.sort().map(async(c) => {
           embed.addField(c, await this.client.commands.filter((command) => command.category === c).map((command) => `\`${command.name}\``).join(", "), false);
         });
