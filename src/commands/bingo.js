@@ -21,7 +21,7 @@ class Bingo extends Command {
         return message.channel.send("⚠ Ce n'est pas une limite valide, veuillez taper un nombre > **0**!");
     }
     
-    if(client.cooldown.bingo[message.channel.id]) {
+    if(client.cooldown.bingo[message.guild.id]) {
         return message.channel.send("⚠ Un bingo est déjà en route!");
     }
 
@@ -30,7 +30,7 @@ class Bingo extends Command {
         const filter = m => m.author.id !== client.user.id;
         const collector = await m.channel.createMessageCollector(filter, { time: 60000 });
 
-        client.cooldown.bingo[m.channel.id] = true;
+        client.cooldown.bingo[m.guild.id] = true;
 
         collector.on("collect", async(collected) => {
             if(collected.content.toLowerCase() === "annuler") {
@@ -54,7 +54,7 @@ class Bingo extends Command {
             }
         });
         collector.on("end", async(collected, reason) => {
-            delete client.cooldown.bingo[m.channel.id];
+            delete client.cooldown.bingo[m.guild.id];
 
             if(reason && reason !== "time") {
                 return message.channel.send(reason);
