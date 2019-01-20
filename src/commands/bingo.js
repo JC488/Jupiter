@@ -24,7 +24,7 @@ class Bingo extends Command {
         return message.channel.send("⚠ Ce n'est pas une limite valide, veuillez taper un nombre supérieur à **0**!");
     }
         
-    message.channel.send(`Que le bingo commence ! Vous avez **1** minute pour trouver un nombre compris entre **0** et **${limit}**`).then(async(m) => {
+    message.channel.send(`Que le bingo commence ! Vous avez **1** minute pour trouver un nombre compris entre **0** et **${Math.round(limit)}**`).then(async(m) => {
         const random = Math.floor(Math.random() * limit);
         const filter = m => m.author.id !== client.user.id;
         const collector = await m.channel.createMessageCollector(filter, { time: 60000 });
