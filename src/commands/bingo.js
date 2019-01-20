@@ -17,17 +17,20 @@ class Bingo extends Command {
     let client = this.client;
     let limit = args[1];
 
-    if(!limit || isNaN(limit)) {
-        return message.channel.send("⚠ Ce n'est pas une limite valide, veuillez taper un nombre !");
+    if(!limit || isNaN(limit) || limit === 0) {
+        return message.channel.send("⚠ Ce n'est pas une limite valide, veuillez taper un nombre > **0**!");
     }
-    else if (limit === 0) {
-        return message.channel.send("⚠ Ce n'est pas une limite valide, veuillez taper un nombre supérieur à **0**!");
+    
+    if(client.cooldown.bingo[message.channel.id]) {
+        return message.channel.send("⚠ Un bingo est déjà en route!");
     }
-        
+
     message.channel.send(`Que le bingo commence ! Vous avez **1** minute pour trouver un nombre compris entre **0** et **${Math.round(limit)}**`).then(async(m) => {
         const random = Math.floor(Math.random() * limit);
         const filter = m => m.author.id !== client.user.id;
         const collector = await m.channel.createMessageCollector(filter, { time: 60000 });
+
+        client.cooldown.bingo[m.channel.id] = true;
 
         collector.on("collect", async(collected) => {
             if(collected.content.toLowerCase() === "annuler") {
@@ -45,6 +48,8 @@ class Bingo extends Command {
             }
         });
         collector.on("end", async(collected, reason) => {
+            delete client.cooldown.bingo[m.channel.id];
+
             if(reason && reason !== "time") {
                 return message.channel.send(reason);
             } else {
