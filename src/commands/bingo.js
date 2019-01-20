@@ -42,6 +42,12 @@ class Bingo extends Command {
                 if(isNaN(response)) {
                     return message.channel.send("⚠ Ce n'est pas un nombre !");
                 }
+                else if(response < random) {
+                    return message.channel.send("⚠ C'est plus !");
+                }
+                else if(response > random) {
+                    return message.channel.send("⚠ C'est moins !");
+                }
                 else if(response === random) {
                     await collector.stop(`${collected.author.toString()} a remporté le Bingo, le nombre était: **${random}**`);
                 }
