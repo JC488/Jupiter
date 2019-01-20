@@ -16,6 +16,9 @@ class Jupiter extends Discord.Client {
     this.logger = new LOGGER(this);
     this.updater = new UPDATER(this);
     this.music = new MUSIC(this);
+    this.cooldown = {
+      bingo: {}
+    };
   }
 }
 
