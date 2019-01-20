@@ -18,7 +18,10 @@ class Bingo extends Command {
     let limit = args[1];
 
     if(!limit || isNaN(limit)) {
-      return message.channel.send("⚠ Ce n'est pas une limite valide, veuillez taper un nombre !");
+        return message.channel.send("⚠ Ce n'est pas une limite valide, veuillez taper un nombre !");
+    }
+    else if (limit === 0) {
+        return message.channel.send("⚠ Ce n'est pas une limite valide, veuillez taper un nombre supérieur à **0**!");
     }
         
     message.channel.send(`Que le bingo commence ! Vous avez **1** minute pour trouver un nombre compris entre **0** et **${limit}**`).then(async(m) => {
