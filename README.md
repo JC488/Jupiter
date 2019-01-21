@@ -46,7 +46,7 @@ node shards.js
 - Avec pm2
 
 ```
-pm2 start shards.js --name="Jupiter" && pm2 logs Jupiter
+pm2 start shards.js --name "Jupiter" && pm2 logs Jupiter
 ```
 ___________
 
@@ -93,7 +93,7 @@ node shards.js
 - With pm2
 
 ```
-pm2 start shards.js --name="Jupiter" && pm2 logs Jupiter
+pm2 start shards.js --name "Jupiter" && pm2 logs Jupiter
 ```
 ___________
 
