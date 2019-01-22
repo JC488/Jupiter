@@ -16,15 +16,18 @@ class Bingo extends Command {
   async run(message, args) {
     let client = this.client;
     let limit = args[1];
-
-    if(!limit || isNaN(limit) || limit === 0) {
-        return message.channel.send("⚠ Ce n'est pas une limite valide, veuillez taper un nombre > **0**!");
-    }
     
     if(client.cooldown.bingo[message.guild.id]) {
         return message.channel.send("⚠ Un bingo est déjà en route!");
     }
-
+    
+    if(!limit || isNaN(limit) || limit === 0) {
+        return message.channel.send("⚠ Ce n'est pas une limite valide, veuillez taper un nombre > **0**!");
+    }
+    else if(limit > 1000) {
+        return message.channel.send("⚠ Ce n'est pas une limite valide, veuillez taper un nombre < **1000**!");
+    }
+    
     message.channel.send(`Que le bingo commence ! Vous avez **1** minute pour trouver un nombre compris entre **0** et **${Math.round(limit)}**`).then(async(m) => {
         const random = Math.floor(Math.random() * limit);
         const filter = m => m.author.id !== client.user.id;
