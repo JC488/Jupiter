@@ -6,6 +6,7 @@ module.exports = {
     BOT_TOKEN: "",
     DBL_TOKENS: {
         DDBL: "",
+        DBL_ORG: "",
         BFD: ""
     },
     MUSIC_OPTS: {
