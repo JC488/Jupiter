@@ -36,6 +36,25 @@ class UpdateStats {
                 });
         await axios({
             method: "post",
+            url: `https://discordbots.org/api/bots/${client.user.id}/stats`,
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: client.config.DBL_TOKENS.DBL_ORG
+            },
+            data: {
+                server_count
+            }
+        })
+            .then(() => {
+                client.logger.log(`Stats | Les stats du bot ont bien été postés sur DBL.ORG !\nNombre de serveurs: ${server_count}`);
+            })
+                .catch((err) => {
+                    if(err) {
+                        return client.logger.error(`Stats | Une erreur est survenue lors de la mise à jours des stats sur DBL.ORG !\n${err.stack}`);
+                    }
+                });
+        await axios({
+            method: "post",
             url: `https://botsfordiscord.com/api/bot/${client.user.id}`,
             headers: {
                 "Content-Type": "application/json",
