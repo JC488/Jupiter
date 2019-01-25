@@ -1,5 +1,6 @@
 # Jupiter
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/83452b5eca7b42b28674fb2766c378c2)](https://www.codacy.com/app/Sworder71/Jupiter?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Sworder71/Jupiter&amp;utm_campaign=Badge_Grade)
+[![Discord](https://img.shields.io/discord/485420015118712852.svg?logo=discord)](https://discord.gg/eduBrt5)
 [![Jupiter](https://img.shields.io/badge/Jupiter-1.5.0--dev-greenBright.svg)](https://github.com/Sworder71/Jupiter)
 [![NodeJS](https://img.shields.io/badge/node.js-8.12.0-greenBright.svg)](https://nodejs.org/)
 [![DiscordJS](https://img.shields.io/badge/discord.js-11.3.2-greenBright.svg)](https://discord.js.org/#/)
