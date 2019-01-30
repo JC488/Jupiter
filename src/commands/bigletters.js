@@ -17,7 +17,7 @@ class Bigletters extends Command {
     let client = this.client;
     let text = args.slice(1);
     
-    if(!text) {
+    if(!text.join(" ")) {
         return client.music.sendEmbed(message, "⚠ Aucun texte spécifié !");
     }
 
