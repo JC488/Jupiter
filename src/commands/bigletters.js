@@ -6,7 +6,7 @@ class Bigletters extends Command {
   constructor(client) {
     super(client, {
       name: "bigletters",
-      description: "Rendre vos mots plus grands !",
+      description: "Rendre vos mots plus grands ! (Caractères Max. 2000)",
       category: "Fun",
       usage: "bigletters <texte>",
       aliases: []
@@ -25,7 +25,7 @@ class Bigletters extends Command {
             .replace(/[^a-zA-Z ]/g, "");
 
         let letterArr = text.split("")
-            .map((w) => (w === " " ? " " : `:regional_indicator_${w}:`))
+            .map((letter) => (letter === " " ? " " : `:regional_indicator_${letter}:`))
             .join("");
 
         message.channel.send(letterArr)
