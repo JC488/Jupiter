@@ -22,6 +22,7 @@ class Bigletters extends Command {
     }
 
         text = text.join(" ")
+            .toLowerCase()
             .replace(/[^a-zA-Z ]/g, "");
 
         let letterArr = text.split("")
