@@ -15,6 +15,8 @@
   "license": "Apache-2.0",
   "dependencies": {
     "asciiart-logo": "^0.1.7",
+    "canvas": "^2.3.1",
+    "canvas-constructor": "^2.1.1",
     "chalk": "^2.4.2",
     "cheerio": "^1.0.0-rc.2",
     "discord.js": "^11.3.2",
