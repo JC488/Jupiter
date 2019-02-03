@@ -55,7 +55,7 @@ class Badge extends Command {
 
     message.channel.send({ file: { attachment: await img, name: "badge.png" }});
 
-    async function getImage(imageURL) {
+    function getImage(imageURL) {
         return new Promise(async(resolve, reject) => {
             await axios.get(imageURL, {
                 responseType: "arraybuffer"
