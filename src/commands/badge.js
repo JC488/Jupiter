@@ -20,7 +20,7 @@ class Badge extends Command {
     
     Canvas.registerFont("./src/assets/fonts/Uni_Sans_Heavy.otf", "Discord");
 
-    let img = new Canvas(390, 170)
+    let img = new Canvas(390, 180)
     .save()
     .setColor("#00000082")
     .setShadowColor("rgba(0, 0, 0, 0.3)")
