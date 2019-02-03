@@ -53,7 +53,7 @@ class Badge extends Command {
 
     .toBuffer();
 
-    message.channel.send({ file: { attachment: await img, name: "test.png" }});
+    message.channel.send({ file: { attachment: await img, name: "badge.png" }});
 
     async function getImage(imageURL) {
         return new Promise(async(resolve, reject) => {
