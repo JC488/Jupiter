@@ -29,7 +29,7 @@ class Volume extends Command {
     }
       let volume = args.slice(1).join(" ");
       if(!volume) {
-        return client.music.sendEmbed(message, "⚠ Donnez-moi un nom de musique à chanter !");
+        return client.music.sendEmbed(message, "⚠ Donnez-moi un nombre pour changer le volume !");
       }
         await client.music.changeVolume(message, volume);
   }
