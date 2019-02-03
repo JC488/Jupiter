@@ -9,7 +9,7 @@ class Volume extends Command {
       description: "Changer le volume du bot",
       category: "Musique",
       usage: "volume <Nombre>",
-      aliases: []
+      aliases: ["vol"]
     });
   }
 
