@@ -26,7 +26,7 @@ class Badge extends Command {
     .setShadowColor("rgba(0, 0, 0, 0.3)")
     .setShadowOffsetY(2)
     .setShadowBlur(10)
-    .addRect(0, 0, 390, 170)
+    .addBeveledRect(0, 0, 390, 170, 5)
     .addCircle(80, 85, 60)
     .addRoundImage(await getImage(client.user.displayAvatarURL), 20, 20, 128, 128, 64)
     .restore()
