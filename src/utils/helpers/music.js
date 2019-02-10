@@ -288,6 +288,9 @@ class Music {
    */
   changeVolume(message, volume) {
     let client = this.client;
+    if(isNaN(volume)) {
+      return client.music.sendEmbed(message, "⚠ Le volume doit être un nombre !");
+    }
     if(parseInt(volume) > 100) {
       return client.music.sendEmbed(message, "⚠ Le volume ne peut atteindre que jusqu'à 100% maximum !");
     }
