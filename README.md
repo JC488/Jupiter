@@ -4,9 +4,9 @@
 [![Jupiter](https://img.shields.io/badge/Jupiter-1.5.0--dev-greenBright.svg)](https://github.com/Sworder71/Jupiter)
 [![NodeJS](https://img.shields.io/badge/node.js-8.12.0-greenBright.svg)](https://nodejs.org/)
 [![DiscordJS](https://img.shields.io/badge/discord.js-11.3.2-greenBright.svg)](https://discord.js.org/#/)
-
 ___________
 
+### THIS BOT IS DEPRECATED, IF YOU WANT TO USE A DISCORD BOT MUSIC, PLEASE USE SWORDER71/RIAS!
 ## Version française:
 
 > Un simple bot musique:
